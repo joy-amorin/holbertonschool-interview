@@ -14,9 +14,9 @@ def canUnlockAll(boxes):
 
     while pending_box:
         current_box = pending_box.pop()
-
-        for key in boxes[current_box]:
-            if key not in open_box:
-                open_box.add(key)
-                pending_box.add(key)
+        if 0 <= current_box < len(boxes):
+            for key in boxes[current_box]:
+                if key not in open_box:
+                    open_box.add(key)
+                    pending_box.add(key)
     return len(open_box) == len(boxes)
